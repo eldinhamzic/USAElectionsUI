@@ -1,0 +1,72 @@
+<h1>Presidental election result</h1>
+<hr>
+<img src="https://cdn0.iconfinder.com/data/icons/modern-ui-1/64/dots-horizontal-nav-more-512.png" alt="">
+<hr>
+<form>
+    <input (change)="this.onFilechange($event)" class="form-control" type="file" id="formFile">
+    <button (click)="this.upload()" type="button" class="btn btn-primary mt-3">Upload</button>
+</form>
+<br><br><br><br>
+
+  
+
+  <div class="tabs" >
+    <div class="index">
+      <button class="tab" (click)="tab=1" (keyup.enter)="tab=1"
+        [ngClass]="{active: tab===1}"  tabindex="0" role="tab">
+        New York
+      </button>
+      <button class="tab" (click)="tab=2"  (keyup.enter)="tab=2" 
+        [ngClass]="{active: tab===2}" tabindex="0" role="tab">
+        Washington
+    </button>
+      <button class="tab" (click)="tab=3"  (keyup.enter)="tab=2"
+        [ngClass]="{active: tab===3}"
+        (keyup.enter)="tab=3" tabindex="0" role="tab">
+        Texas
+  </button>
+    </div>
+    <br><br>
+    <table>
+      <td>Candidate</td>
+      <td>Votes</td>
+      <td>Percentage</td>
+    </table>
+    <div class="contents" *ngFor="let vote of votes;">
+      <div *ngIf="tab === 1"> 
+      <table *ngIf="vote.constituencyName=='New York'" border="1px">
+        
+        <tr>
+          <td>{{vote.candidateName}}</td>
+          <td>{{vote.numberOfVotes}}</td>
+          <td id="percent"></td>
+        </tr>
+      </table>  
+      </div>
+      <div *ngIf="tab === 2">
+        <table *ngIf="vote.constituencyName=='Washington'" border="1px">
+        
+        <tr>
+          <td>{{vote.candidateName}}</td>
+          <td>{{vote.numberOfVotes}}</td>
+          <td id="percent"></td>
+        </tr>
+      </table>  
+      </div>
+      <div *ngIf="tab === 3">
+        <table *ngIf="vote.constituencyName=='Texas'"  border="1px" >  
+          
+          <tr>
+            <td>{{vote.candidateName}}</td>
+            <td>{{vote.numberOfVotes}}</td>
+            <td id="percent"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
