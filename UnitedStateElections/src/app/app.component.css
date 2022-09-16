@@ -55,9 +55,18 @@
   }
   
   table{
-    margin-left: 35%;
+    margin-left: 33%;
     border-collapse: collapse;
   }
   .index {
     margin-left: 35%;
   }
+
+  
+.red {
+    color: red; 
+}
+
+.black {
+    color: black;
+}

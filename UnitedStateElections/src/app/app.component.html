@@ -31,6 +31,7 @@
       <td>Candidate</td>
       <td>Votes</td>
       <td>Percentage</td>
+      <td>Error</td>
     </table>
     <div class="contents" *ngFor="let vote of votes;">
       <div *ngIf="tab === 1"> 
@@ -38,18 +39,22 @@
         
         <tr>
           <td>{{vote.candidateName}}</td>
-          <td>{{vote.numberOfVotes}}</td>
-          <td id="percent"></td>
+          <td>{{vote.allVotes}}</td>
+          <td id="percent">{{vote.percentage}}%</td>
+          <td *ngIf="vote.allVotes!='0'"> NO </td>
+          <td *ngIf="vote.allVotes=='0'"> YES </td>
         </tr>
       </table>  
       </div>
       <div *ngIf="tab === 2">
         <table *ngIf="vote.constituencyName=='Washington'" border="1px">
         
-        <tr>
+        <tr ng-repeat="list in results">
           <td>{{vote.candidateName}}</td>
-          <td>{{vote.numberOfVotes}}</td>
-          <td id="percent"></td>
+          <td>{{vote.allVotes}}</td>
+          <td id="percent">{{vote.percentage}}%</td>
+          <td *ngIf="vote.allVotes!='0'"> NO </td>
+          <td *ngIf="vote.allVotes=='0'"> YES </td>
         </tr>
       </table>  
       </div>
@@ -58,8 +63,11 @@
           
           <tr>
             <td>{{vote.candidateName}}</td>
-            <td>{{vote.numberOfVotes}}</td>
-            <td id="percent"></td>
+            <td>{{vote.allVotes}}</td>
+            <td id="percent">{{vote.percentage}}%</td>
+            <td *ngIf="vote.allVotes=='0'"> YES </td>
+            <td *ngIf="vote.allVotes!='0'"> NO </td>
+            
           </tr>
         </table>
       </div>
